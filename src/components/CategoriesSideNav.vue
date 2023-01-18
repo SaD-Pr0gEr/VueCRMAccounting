@@ -1,5 +1,5 @@
 <template>
-  <BaseSideNav :sidenav-extra-classes="`app-sidenav open`">
+  <BaseSideNav :sidenav-extra-classes="`app-sidenav ${navbarOpen ? 'open' : ''}`">
     <template #sidenav-content>
       <router-link
           :to="link.path"
@@ -24,6 +24,6 @@ import BaseSideNav from "@/components/UI/BaseSideNav.vue";
 export default {
   name: "CategoriesSideNav",
   components: {BaseSideNav},
-  props: ["sidenavLinks"]
+  props: ["sidenavLinks", "navbarOpen"]
 }
 </script>

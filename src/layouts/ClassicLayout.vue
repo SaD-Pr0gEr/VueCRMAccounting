@@ -2,11 +2,11 @@
   <div class="app-main-layout">
     <BaseNavbar>
       <template #base-navbar-content>
-        <CategoriesNavbar/>
+        <CategoriesNavbar @navbar-toggle-event="navbarOpen = !navbarOpen"/>
       </template>
     </BaseNavbar>
-    <CategoriesSideNav :sidenavLinks="sidebarLinks"/>
-    <main class="app-content">
+    <CategoriesSideNav :sidenavLinks="sidebarLinks" :navbarOpen="navbarOpen"/>
+    <main :class="`app-content ${wideWindowNavbar}`">
       <div class="app-page">
         <slot></slot>
       </div>
@@ -30,7 +30,13 @@ export default {
   components: {CategoriesSideNav, CategoriesNavbar, BaseNavbar},
   data() {
     return {
-      sidebarLinks: sidebarLinks
+      sidebarLinks: sidebarLinks,
+      navbarOpen: true
+    }
+  },
+  computed: {
+    wideWindowNavbar() {
+      return this.navbarOpen ? '' : 'full'
     }
   }
 }

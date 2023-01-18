@@ -1,6 +1,6 @@
 <template>
   <div class="navbar-left">
-    <a href="#">
+    <a href="#" @click.prevent="$emit('navbar-toggle-event')">
       <i class="material-icons black-text">dehaze</i>
     </a>
     <span class="black-text">12.12.12</span>
@@ -32,6 +32,7 @@
 
 <script>
 export default {
-  name: "CategoriesNavbar"
+  name: "CategoriesNavbar",
+  emits: ["navbar-toggle-event"]
 }
 </script>
