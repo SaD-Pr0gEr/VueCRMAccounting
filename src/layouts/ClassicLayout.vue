@@ -5,7 +5,7 @@
         <CategoriesNavbar/>
       </template>
     </BaseNavbar>
-    <CategoriesSideNav/>
+    <CategoriesSideNav :sidenavLinks="sidebarLinks"/>
     <main class="app-content">
       <div class="app-page">
         <slot></slot>
@@ -23,10 +23,16 @@
 import BaseNavbar from "@/components/UI/BaseNavbar.vue";
 import CategoriesNavbar from "@/components/CategoriesNavbar.vue";
 import CategoriesSideNav from "@/components/CategoriesSideNav.vue";
+import {sidebarLinks} from "@/router/linksData";
 
 export default {
   name: "ClassicLayout",
-  components: {CategoriesSideNav, CategoriesNavbar, BaseNavbar}
+  components: {CategoriesSideNav, CategoriesNavbar, BaseNavbar},
+  data() {
+    return {
+      sidebarLinks: sidebarLinks
+    }
+  }
 }
 </script>
 

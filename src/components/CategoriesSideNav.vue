@@ -1,21 +1,19 @@
 <template>
   <BaseSideNav :sidenav-extra-classes="`app-sidenav open`">
     <template #sidenav-content>
-      <li>
-        <router-link class="waves-effect waves-orange pointer" to="/">Главная(Счёт)</router-link>
-      </li>
-      <li>
-        <router-link class="waves-effect waves-orange pointer" to="/categories">Категории</router-link>
-      </li>
-      <li>
-        <router-link class="waves-effect waves-orange pointer" to="/history">История</router-link>
-      </li>
-      <li>
-        <router-link class="waves-effect waves-orange pointer" to="/planning">Планирование</router-link>
-      </li>
-      <li>
-        <router-link class="waves-effect waves-orange pointer" to="/record/new">Новая запись</router-link>
-      </li>
+      <router-link
+          :to="link.path"
+          v-for="(link, index) in sidenavLinks" :key="index"
+          active-class="active"
+          custom v-slot="{ navigate }"
+      >
+        <li class="active" v-if="this.$route.path === link.path">
+          <a class="waves-effect waves-orange pointer" @click="navigate">{{ link.meta.displayName }}</a>
+        </li>
+        <li v-else>
+          <a class="waves-effect waves-orange pointer" @click="navigate">{{ link.meta.displayName }}</a>
+        </li>
+      </router-link>
     </template>
   </BaseSideNav>
 </template>
@@ -25,10 +23,7 @@ import BaseSideNav from "@/components/UI/BaseSideNav.vue";
 
 export default {
   name: "CategoriesSideNav",
-  components: {BaseSideNav}
+  components: {BaseSideNav},
+  props: ["sidenavLinks"]
 }
 </script>
-
-<style scoped>
-
-</style>
