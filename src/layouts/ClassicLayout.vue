@@ -11,11 +11,7 @@
         <slot></slot>
       </div>
     </main>
-    <div class="fixed-action-btn">
-      <a class="btn-floating btn-large blue" href="#">
-        <i class="large material-icons">add</i>
-      </a>
-    </div>
+    <FixedAddBtn />
   </div>
 </template>
 
@@ -24,10 +20,11 @@ import BaseNavbar from "@/components/UI/BaseNavbar.vue";
 import CategoriesNavbar from "@/components/CategoriesNavbar.vue";
 import CategoriesSideNav from "@/components/CategoriesSideNav.vue";
 import {sidebarLinks} from "@/router/linksData";
+import FixedAddBtn from "@/components/UI/Buttons/FixedAddBtn.vue";
 
 export default {
   name: "ClassicLayout",
-  components: {CategoriesSideNav, CategoriesNavbar, BaseNavbar},
+  components: {FixedAddBtn, CategoriesSideNav, CategoriesNavbar, BaseNavbar},
   data() {
     return {
       sidebarLinks: sidebarLinks,
