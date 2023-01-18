@@ -32,18 +32,17 @@
           <div class="col s12 m6">
             <div>
               <div class="page-subtitle">
-                <h4>Редактировать</h4>
+                <h4 style="margin-bottom: 8px;">Редактировать</h4>
               </div>
               <form>
-                <div class="input-field">
-                  <select>
+                <div class="input-field" style="margin-top: 0; margin-bottom: 23px">
+                  <label for="category" style="position: relative;">Категория</label>
+                  <select id="category" style="display: block">
+                    <option disabled selected>Выберите категорию *</option>
                     <option>Category</option>
+                    <option>Category2</option>
+                    <option>Category3</option>
                   </select>
-                  <label>Выберите категорию</label>
-                </div>
-                <div class="input-field">
-                  <input type="text" id="name">
-                  <label for="name">Название</label>
                   <span class="helper-text invalid">TITLE</span>
                 </div>
                 <div class="input-field">
