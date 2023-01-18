@@ -9,18 +9,16 @@
     <li>
       <a class="dropdown-trigger black-text"
          href="#"
-         data-target="dropdown">
+         data-target="dropdown" ref="dropdownTrigger">
         USER NAME
         <i class="material-icons right">arrow_drop_down</i>
       </a>
       <ul id='dropdown' class='dropdown-content'>
         <li>
-          <a href="#" class="black-text">
-            <i class="material-icons">account_circle</i>Профиль
-          </a>
+          <router-link :to="{name: 'userProfile'}" class="black-text"><i class="material-icons">account_circle</i>Профиль</router-link>
         </li>
         <li class="divider" tabindex="-1"></li>
-        <li>
+        <li @click="logout">
           <a href="#" class="black-text">
             <i class="material-icons">assignment_return</i>Выйти
           </a>
@@ -31,8 +29,19 @@
 </template>
 
 <script>
+import M from 'materialize-css'
+
 export default {
   name: "CategoriesNavbar",
-  emits: ["navbar-toggle-event"]
+  emits: ["navbar-toggle-event"],
+  mounted() {
+    M.Dropdown.init(this.$refs.dropdownTrigger, {constrainWidth: true})
+  },
+  methods: {
+    logout() {
+      console.log('Success logout')
+      this.$router.push('/login')
+    }
+  }
 }
 </script>
