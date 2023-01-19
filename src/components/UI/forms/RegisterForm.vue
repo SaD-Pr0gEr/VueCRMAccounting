@@ -98,7 +98,7 @@ export default {
         this.hasFormError = true
         return 0
       }
-      return this.$router.push('/login')
+      return this.$router.push('/login?action=registerSuccess')
     },
     validateEmail() {
       this.v$.userEmail.$touch()

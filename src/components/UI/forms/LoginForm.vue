@@ -21,7 +21,7 @@
             v-model.trim="userPassword"
             @blur="validatePassword"
             :class="{invalid: defineErrorClass(v$.userPassword)}"
-            >
+        >
         <label for="password">Пароль</label>
         <small class="helper-text invalid" v-if="v$.userPassword.$errors.length > 0">
           {{ v$.userPassword.$errors[0].$message }}
@@ -77,7 +77,7 @@ export default {
         this.hasFormError = true
         return 0
       }
-      return this.$router.push('/')
+      return this.$router.push('/?action=loginSuccess')
     },
     validateEmail() {
       this.v$.userEmail.$touch()
@@ -95,6 +95,16 @@ export default {
       } else {
         return ''
       }
+    }
+  },
+  mounted() {
+    switch (this.$route.query.action) {
+      case "registerSuccess":
+        this.$toaster('Вы успешно зарегистрировались! Теперь войдите в свой аккаунт');
+        break
+      case "logoutSuccess":
+        this.$toaster('Вы успешно вышли из системы');
+        break
     }
   }
 }

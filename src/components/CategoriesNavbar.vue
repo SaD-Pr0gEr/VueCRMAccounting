@@ -50,8 +50,7 @@ export default {
   },
   methods: {
     logout() {
-      console.log('Success logout')
-      this.$router.push('/login')
+      this.$router.push('/login?action=logoutSuccess')
     }
   }
 }

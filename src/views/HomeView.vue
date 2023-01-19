@@ -56,6 +56,13 @@ import ClassicLayout from "@/layouts/ClassicLayout.vue";
 
 export default {
   name: "HomeView",
-  components: {ClassicLayout}
+  components: {ClassicLayout},
+  mounted() {
+    switch (this.$route.query.action) {
+      case "loginSuccess":
+        this.$toaster('Добро пожаловать!');
+        break
+    }
+  }
 }
 </script>
