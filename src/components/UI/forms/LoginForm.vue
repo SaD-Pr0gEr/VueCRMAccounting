@@ -10,18 +10,22 @@
             @blur="validateEmail"
             :class="{invalid: defineErrorClass(v$.userEmail)}">
         <label for="email">Email</label>
-        <small class="helper-text invalid">Ваш email</small>
+        <small class="helper-text invalid" v-if="v$.userEmail.$errors.length > 0">
+          {{ v$.userEmail.$errors[0].$message }}
+        </small>
       </div>
       <div class="input-field">
         <input
             id="password"
             type="password"
-            v-model="userPassword"
+            v-model.trim="userPassword"
             @blur="validatePassword"
             :class="{invalid: defineErrorClass(v$.userPassword)}"
             >
         <label for="password">Пароль</label>
-        <small class="helper-text invalid">Ваш пароль</small>
+        <small class="helper-text invalid" v-if="v$.userPassword.$errors.length > 0">
+          {{ v$.userPassword.$errors[0].$message }}
+        </small>
       </div>
     </div>
     <div class="card-action">
