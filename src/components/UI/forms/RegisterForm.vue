@@ -60,7 +60,6 @@
       <p class="center">
         Уже есть аккаунт?
         <router-link to="/login">Войти!</router-link>
-        <a @click="toast" class="btn">Toast!</a>
       </p>
     </div>
   </form>
@@ -69,7 +68,6 @@
 <script>
 import useVuelidate from "@vuelidate/core";
 import {email, minLength, required} from "@vuelidate/validators";
-import M from "materialize-css"
 
 export default {
   name: "RegisterForm",
@@ -122,9 +120,6 @@ export default {
       } else {
         return ''
       }
-    },
-    toast() {
-      M.toast({html: 'I am a toast'})
     }
   }
 }
