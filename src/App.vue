@@ -42,4 +42,8 @@
 .dark-purple-white-bg {
   background: #bd93f9;
 }
+
+.white {
+  color: white;
+}
 </style>

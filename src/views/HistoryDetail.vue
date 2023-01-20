@@ -2,7 +2,7 @@
   <ClassicLayout>
     <div>
       <div class="breadcrumb-wrap">
-        <router-link class="waves-effect waves-orange pointer" to="/history">История</router-link>
+        <router-link class="waves-effect waves-red pointer" to="/history">История</router-link>
         <a class="breadcrumb">
           Расход
         </a>
@@ -31,3 +31,9 @@ export default {
   components: {ClassicLayout}
 }
 </script>
+
+<style scoped>
+.breadcrumb-wrap a, .breadcrumb-wrap a::before {
+  color: white !important;
+}
+</style>
