@@ -10,6 +10,14 @@
   -webkit-transition: background 1.2s ease;
 }
 
+.dark-bg-green-front {
+  background: #383a59;
+}
+
+.dark-bg-green-front li a {
+  color: rgb(80,250,123);
+}
+
 .orange, .lighten-1 {
   -webkit-transition: background 1.2s ease;
 }
@@ -24,7 +32,7 @@
 }
 
 .dark-green-bg {
-  background: rgb(80,250,123);
+  background: rgb(29, 143, 57);
 }
 
 .dark-pink {
@@ -32,7 +40,7 @@
 }
 
 .dark-red-bg {
-  background: #f55;
+  background: #c45ed3cc;
 }
 
 .dark-red {
@@ -44,6 +52,10 @@
 }
 
 .white {
+  color: white;
+}
+
+.card-content {
   color: white;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <BaseSideNav :sidenav-extra-classes="`app-sidenav ${navbarOpen ? 'open' : ''} ${ $store.state.darkTheme ? 'dark-purple-white-bg': ''}`">
+  <BaseSideNav :sidenav-extra-classes="`app-sidenav ${navbarOpen ? 'open' : ''} ${ $store.state.darkTheme ? 'dark-bg-green-front': ''}`">
     <template #sidenav-content>
       <router-link
           :to="link.path"
@@ -8,10 +8,10 @@
           custom v-slot="{ navigate }"
       >
         <li class="active" v-if="this.$route.path === link.path">
-          <a class="waves-effect pointer" :class="{'white-text': $store.state.darkTheme}" @click="navigate">{{ link.meta.displayName }}</a>
+          <a class="waves-effect pointer" @click="navigate">{{ link.meta.displayName }}</a>
         </li>
         <li v-else>
-          <a class="waves-effect pointer" :class="{'white-text': $store.state.darkTheme}" @click="navigate">{{ link.meta.displayName }}</a>
+          <a class="waves-effect pointer" @click="navigate">{{ link.meta.displayName }}</a>
         </li>
       </router-link>
     </template>
