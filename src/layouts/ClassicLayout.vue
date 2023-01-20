@@ -1,5 +1,5 @@
 <template>
-  <div class="app-main-layout">
+  <div class="app-main-layout" :class="{'bg-dark-material dark-pink': $store.state.darkTheme}">
     <BaseNavbar>
       <template #base-navbar-content>
         <CategoriesNavbar @navbar-toggle-event="navbarOpen = !navbarOpen"/>

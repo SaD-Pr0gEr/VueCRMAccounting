@@ -9,7 +9,7 @@
       </div>
       <div class="row">
         <div class="col s12 m6 l4">
-          <div class="card light-blue bill-card">
+          <div class="card bill-card" :class="{'dark-red-bg': $store.state.darkTheme, 'light-blue': !$store.state.darkTheme}">
             <div class="card-content white-text">
               <span class="card-title">Счет в валюте</span>
 
@@ -21,8 +21,10 @@
         </div>
 
         <div class="col s12 m6 l8">
-          <div class="card orange darken-3 bill-card">
-            <div class="card-content white-text">
+          <div class="card bill-card" :class="{
+            'dark-green-bg black-text': $store.state.darkTheme,
+            'orange white-text': !$store.state.darkTheme}">
+            <div class="card-content">
               <div class="card-header">
                 <span class="card-title">Курс валют</span>
               </div>

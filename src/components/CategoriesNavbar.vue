@@ -1,13 +1,16 @@
 <template>
   <div class="navbar-left">
     <a href="#" @click.prevent="$emit('navbar-toggle-event')">
-      <i class="material-icons black-text">dehaze</i>
+      <i class="material-icons" :class="{'black-text': !$store.state.darkTheme, 'dark-green': $store.state.darkTheme}">dehaze</i>
     </a>
-    <span class="black-text">{{ datetime }}</span>
+    <span :class="{'black-text': !$store.state.darkTheme, 'dark-green': $store.state.darkTheme}">{{ datetime }}</span>
   </div>
   <ul class="right hide-on-small-and-down">
     <li>
-      <a class="dropdown-trigger black-text"
+      <PageThemes></PageThemes>
+    </li>
+    <li>
+      <a class="dropdown-trigger" :class="{'black-text': !$store.state.darkTheme, 'dark-green': $store.state.darkTheme}"
          href="#"
          data-target="dropdown" ref="dropdownTrigger">
         USER NAME
@@ -15,11 +18,12 @@
       </a>
       <ul id='dropdown' class='dropdown-content'>
         <li>
-          <router-link :to="{name: 'userProfile'}" class="black-text"><i class="material-icons">account_circle</i>Профиль</router-link>
+          <router-link :to="{name: 'userProfile'}" :class="{'black-text': !$store.state.darkTheme, 'dark-green': $store.state.darkTheme}">
+            <i class="material-icons">account_circle</i>Профиль</router-link>
         </li>
         <li class="divider" tabindex="-1"></li>
         <li @click.prevent="logout">
-          <a href="#" class="black-text">
+          <a href="#" :class="{'black-text': !$store.state.darkTheme, 'dark-green': $store.state.darkTheme}">
             <i class="material-icons">assignment_return</i>Выйти
           </a>
         </li>
@@ -30,9 +34,11 @@
 
 <script>
 import M from 'materialize-css'
+import PageThemes from "@/components/UI/PageThemes.vue";
 
 export default {
   name: "CategoriesNavbar",
+  components: {PageThemes},
   emits: ["navbar-toggle-event"],
   data() {
     return {

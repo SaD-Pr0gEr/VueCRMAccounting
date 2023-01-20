@@ -1,5 +1,6 @@
 <template>
-  <nav class="navbar orange lighten-1">
+  <nav class="navbar" :class="{
+    'orange lighten-1': !$store.state.darkTheme, 'bg-dark': $store.state.darkTheme}">
     <div class="nav-wrapper">
       <slot name="base-navbar-content"></slot>
     </div>
@@ -11,7 +12,3 @@ export default {
   name: "BaseNavbar"
 }
 </script>
-
-<style scoped>
-
-</style>
