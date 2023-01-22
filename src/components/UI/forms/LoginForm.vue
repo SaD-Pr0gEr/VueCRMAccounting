@@ -48,7 +48,9 @@
 
 <script>
 import {email, minLength, required} from "@vuelidate/validators";
+import M from "materialize-css"
 import useVuelidate from "@vuelidate/core";
+import {loginUser} from "@/firebase/auth";
 
 export default {
   name: "LoginForm",
@@ -61,7 +63,8 @@ export default {
     return {
       userEmail: '',
       userPassword: '',
-      hasFormError: false
+      hasFormError: false,
+      response: null
     }
   },
   validations() {
@@ -71,13 +74,18 @@ export default {
     }
   },
   methods: {
-    loginSubmit() {
+    async loginSubmit() {
       this.v$.$validate()
       if (this.v$.$invalid) {
         this.hasFormError = true
         return 0
       }
-      return this.$router.push('/?action=loginSuccess')
+      this.response = await loginUser(this.userEmail, this.userPassword)
+      if (this.response.success) {
+        return this.$router.push('/?action=loginSuccess')
+      } else {
+        M.toast({html: this.response.message})
+      }
     },
     validateEmail() {
       this.v$.userEmail.$touch()
